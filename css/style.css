@@ -26,8 +26,40 @@ body {
   font-weight: bold;
 }
 
-nav {
+#categories {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
   align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+/* Cada tarjeta ocupa el 25% menos el espacio del gap (4 columnas) */
+#categories > .category-card {
+  flex: 0 0 calc(25% - 15px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cat-redondo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #ddd;
+  background-color: #fff;
+}
+
+#categories .cat-titulo {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
 }
