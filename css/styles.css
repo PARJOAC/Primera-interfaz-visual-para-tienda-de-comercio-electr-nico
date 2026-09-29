@@ -32,64 +32,6 @@ nav {
   align-items: center;
 }
 
-/* --- ESTILOS DE CATEGORÍAS --- */
-
-.categories-section {
-  max-width: 1200px;
-  margin: 30px auto 10px auto;
-  padding: 0 20px;
-}
-
-.categories-container {
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  /* Ocultar barra de scroll para que se vea más limpio pero permitiendo deslizar */
-  scrollbar-width: none; 
-}
-.categories-container::-webkit-scrollbar {
-  display: none;
-}
-
-.category-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 110px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-}
-
-.cat-redondo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: #eee;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-bottom: 12px;
-  border: 3px solid #fff;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.category-card:hover .cat-redondo {
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-  border-color: #111;
-}
-
-.cat-titulo {
-  font-size: 14px;
-  font-weight: 700;
-  color: #333;
-  margin: 0;
-  text-align: center;
-}
-
 /* --- ESTILOS DE LA TIENDA --- */
 
 .store-layout {
@@ -121,15 +63,17 @@ nav {
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .product-image {
@@ -170,7 +114,9 @@ nav {
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
 }
 
 .add-to-cart-btn:hover {
@@ -190,7 +136,7 @@ nav {
   background: white;
   border-radius: 16px;
   padding: 25px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 30px;
 }
@@ -270,7 +216,9 @@ nav {
   font-size: 16px;
   font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition:
+    background 0.2s,
+    transform 0.1s;
 }
 
 .checkout-btn:hover {
@@ -309,7 +257,7 @@ nav {
   background: white;
   border-radius: 16px;
   padding: 30px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
 }
 
 .cart-item-page {
@@ -317,9 +265,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #f5f5f5;
 }
-
 /* --- CLASES EXTRAÍDAS DE ESTILOS EN LÍNEA --- */
 .section-header {
   display: flex;
@@ -355,80 +301,3 @@ nav {
   font-size: 16px;
   font-weight: bold;
 }
-
-/* --- RESPONSIVIDAD (MEDIA QUERIES) --- */
-
-@media (max-width: 768px) {
-  /* Banner superior más pequeño */
-  #top-banner {
-    font-size: 12px;
-    padding: 5px;
-  }
-  
-  /* Ajustar la disposición de la tienda para que sea vertical */
-  .store-layout {
-    flex-direction: column;
-    margin: 20px auto;
-    gap: 20px;
-  }
-  
-  /* El header (título + botón) en vertical o más pequeño */
-  .section-header {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  
-  .section-title {
-    font-size: 22px;
-  }
-  
-  /* Reducir el grid de productos para móviles pequeños */
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 15px;
-  }
-  
-  /* Reducir el tamaño de la tarjeta y fuente */
-  .product-image {
-    height: 200px;
-  }
-  
-  .product-title {
-    font-size: 15px;
-  }
-  
-  .product-price {
-    font-size: 16px;
-  }
-  
-  .add-to-cart-btn {
-    padding: 10px;
-    font-size: 13px;
-  }
-
-  /* Ajustar tamaño de las categorías en móvil */
-  .cat-redondo {
-    width: 75px;
-    height: 75px;
-  }
-  
-  .cat-titulo {
-    font-size: 12px;
-  }
-  
-  /* Ajustes en la cesta de compras aislada */
-  .cart-container-page {
-    padding: 15px;
-  }
-  
-  .cart-item-img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .cart-item-title {
-    font-size: 15px;
-  }
-}
-
