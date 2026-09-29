@@ -1,18 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHAIN</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/loadNav.js"></script>
+    <script src="js/productos.js"></script>
     <script src="js/loadCategories.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="top-banner">
-        <p id="top-banner-text">VENTA FLASH ⚡ 70% DE DESCUENTO EN TODO EL SITIO + ENVÍO GRATIS A PARTIR DE <span>29.00€</span></p>
+      <p id="top-banner-text">
+        VENTA FLASH ⚡ 70% DE DESCUENTO EN TODO EL SITIO + ENVÍO GRATIS A PARTIR
+        DE <span>29.00€</span>
+      </p>
     </div>
     <div id="navbar"></div>
-    <div id="categories"></div>
-</body>
+
+    <section class="categories-section">
+      <h2 class="section-title">Categorías</h2>
+      <div id="categories" class="categories-container">
+        <!-- Las categorías se cargarán aquí con JS -->
+      </div>
+    </section>
+
+    <main class="store-layout">
+      <section class="products-section">
+        <div class="section-header">
+          <h2 class="section-title">Novedades</h2>
+          <a href="cesta.html" class="go-to-cart-btn"
+            >Ver Mi Cesta (<span id="cart-count">0</span>)</a
+          >
+        </div>
+        <div id="lista-productos" class="products-grid">
+          <!-- Los productos se generarán aquí con JS -->
+        </div>
+      </section>
+    </main>
+
+    
+  </body>
 </html>
