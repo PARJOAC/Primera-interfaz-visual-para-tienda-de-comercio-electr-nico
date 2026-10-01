@@ -8,7 +8,6 @@ const categoriesArray = [
   "Bañadores",
   "Bikinis",
   "Vestidos",
-  "Complementos",
 ];
 
 categoriesArray.forEach((name) => {
