@@ -37,9 +37,7 @@ const catalogo = [
   },
 ];
 
-// Cargar la cesta de localStorage para que no se pierda al cambiar de página
-let cesta = JSON.parse(localStorage.getItem("shain_cesta")) || [];
-
+let cesta = [];
 function mostrarCatalogo() {
   const contenedor = document.getElementById("lista-productos");
   if (!contenedor) return;
@@ -67,7 +65,6 @@ function añadirACesta(id) {
   const producto = catalogo.find((p) => p.id === id);
   if (producto) {
     cesta.push(producto);
-    localStorage.setItem("shain_cesta", JSON.stringify(cesta)); // Guardar en el navegador
     actualizarContadorCesta();
   }
 }
@@ -79,51 +76,8 @@ function actualizarContadorCesta() {
   }
 }
 
-function mostrarCesta() {
-  const contenedorCesta = document.getElementById("items-cesta");
-  if (!contenedorCesta) return; // Si no estamos en cesta.html, no hace nada
-
-  contenedorCesta.innerHTML = "";
-
-  let total = 0;
-
-  if (cesta.length === 0) {
-    contenedorCesta.innerHTML =
-      "<p class='cart-empty-msg'>La cesta está vacía</p>";
-  } else {
-    cesta.forEach((prod, index) => {
-      const div = document.createElement("div");
-      div.className = "cart-item-page";
-
-      div.innerHTML = `
-        <div class="cart-item-details">
-          <img src="${prod.img}" class="cart-item-img">
-          <div class="cart-item-info">
-            <strong class="cart-item-title">${prod.nombre}</strong><br>
-            <span class="cart-item-price">${prod.precio.toFixed(2)}€</span>
-          </div>
-        </div>
-        <button class="remove-btn" onclick="eliminarDeCesta(${index})">Eliminar</button>
-      `;
-
-      contenedorCesta.appendChild(div);
-      total += prod.precio;
-    });
-  }
-
-  document.getElementById("total-cesta").innerText =
-    `Total: ${total.toFixed(2)}€`;
-}
-
-function eliminarDeCesta(indice) {
-  cesta.splice(indice, 1);
-  localStorage.setItem("shain_cesta", JSON.stringify(cesta)); // Actualizar datos en navegador
-  mostrarCesta();
-}
-
 // Inicializar cuando el DOM esté listo
 window.addEventListener("DOMContentLoaded", () => {
   mostrarCatalogo();
-  mostrarCesta();
   actualizarContadorCesta();
 });
