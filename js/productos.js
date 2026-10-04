@@ -48,14 +48,14 @@ function mostrarCatalogo() {
 
   catalogo.forEach((prod) => {
     const div = document.createElement("div");
-    div.className = "product-card";
+    div.className = "tarjeta-producto";
 
     div.innerHTML = `
-      <img src="${prod.img}" alt="${prod.nombre}" class="product-image">
-      <div class="product-info">
-        <h3 class="product-title">${prod.nombre}</h3>
-        <p class="product-price">${prod.precio.toFixed(2)} €</p>
-        <button class="add-to-cart-btn" onclick="añadirACesta(${prod.id})">Añadir a la cesta</button>
+      <img src="${prod.img}" alt="${prod.nombre}" class="imagen-producto">
+      <div class="info-producto">
+        <h3 class="titulo-producto">${prod.nombre}</h3>
+        <p class="precio-producto">${prod.precio.toFixed(2)} €</p>
+        <button class="boton-anadir-carrito" onclick="añadirACesta(${prod.id})">Añadir a la cesta</button>
       </div>
     `;
 
@@ -89,21 +89,21 @@ function mostrarCesta() {
 
   if (cesta.length === 0) {
     contenedorCesta.innerHTML =
-      "<p class='cart-empty-msg'>La cesta está vacía</p>";
+      "<p class='mensaje-carrito-vacio'>La cesta está vacía</p>";
   } else {
     cesta.forEach((prod, index) => {
       const div = document.createElement("div");
-      div.className = "cart-item-page";
+      div.className = "elemento-carrito-pagina";
 
       div.innerHTML = `
-        <div class="cart-item-details">
-          <img src="${prod.img}" class="cart-item-img">
-          <div class="cart-item-info">
-            <strong class="cart-item-title">${prod.nombre}</strong><br>
-            <span class="cart-item-price">${prod.precio.toFixed(2)}€</span>
+        <div class="detalles-elemento-carrito">
+          <img src="${prod.img}" class="imagen-elemento-carrito">
+          <div class="info-elemento-carrito">
+            <strong class="titulo-elemento-carrito">${prod.nombre}</strong><br>
+            <span class="precio-elemento-carrito">${prod.precio.toFixed(2)}€</span>
           </div>
         </div>
-        <button class="remove-btn" onclick="eliminarDeCesta(${index})">Eliminar</button>
+        <button class="boton-eliminar" onclick="eliminarDeCesta(${index})">Eliminar</button>
       `;
 
       contenedorCesta.appendChild(div);

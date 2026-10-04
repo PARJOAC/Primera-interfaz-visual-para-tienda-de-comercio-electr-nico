@@ -1,6 +1,6 @@
 const categories = document.getElementById("categories");
 
-const categoriesArray = [
+const categoriasArray = [
   "Camisetas",
   "Pantalones Largos",
   "Pantalones Cortos",
@@ -11,18 +11,17 @@ const categoriesArray = [
   "Complementos",
 ];
 
-categoriesArray.forEach((name) => {
-  // Creamos un contenedor por cada categoría
-  const fileName = name
+categoriasArray.forEach((name) => {
+  const nombreArchivo = name
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "") // Limpia tildes (ej: Bañadores -> banadores)
     .replace(/\s+/g, "_"); // Reemplaza espacios por guiones bajos
 
   categories.innerHTML += `
-    <div class="category-card">
-        <img class="cat-redondo" src="img/categories/${fileName}.png" alt="${name}">
-        <p class="cat-titulo">${name}</p>
+    <div class="tarjeta-categoria">
+        <img class="imagen-categoria" src="img/categories/${nombreArchivo}.png" alt="${name}">
+        <p class="titulo-categoria">${name}</p>
     </div>
     `;
 });
