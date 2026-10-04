@@ -8,14 +8,13 @@ const categoriasArray = [
   "Bañadores",
   "Bikinis",
   "Vestidos",
-  "Complementos",
 ];
 
 categoriasArray.forEach((name) => {
   const nombreArchivo = name
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // Limpia tildes (ej: Bañadores -> banadores)
+    .replace(/[\u0300-\u036f]/g, "") // Limpia tildes
     .replace(/\s+/g, "_"); // Reemplaza espacios por guiones bajos
 
   categories.innerHTML += `

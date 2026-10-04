@@ -37,9 +37,7 @@ const catalogo = [
   },
 ];
 
-// Cargar la cesta de localStorage para que no se pierda al cambiar de página
-let cesta = JSON.parse(localStorage.getItem("shain_cesta")) || [];
-
+let cesta = [];
 function mostrarCatalogo() {
   const contenedor = document.getElementById("lista-productos");
   if (!contenedor) return;
@@ -67,7 +65,6 @@ function añadirACesta(id) {
   const producto = catalogo.find((p) => p.id === id);
   if (producto) {
     cesta.push(producto);
-    localStorage.setItem("shain_cesta", JSON.stringify(cesta)); // Guardar en el navegador
     actualizarContadorCesta();
   }
 }
@@ -124,6 +121,5 @@ function eliminarDeCesta(indice) {
 // Inicializar cuando el DOM esté listo
 window.addEventListener("DOMContentLoaded", () => {
   mostrarCatalogo();
-  mostrarCesta();
   actualizarContadorCesta();
 });
